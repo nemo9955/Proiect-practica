@@ -2,9 +2,8 @@
 <html>
    <head>
       <title>Log in for mybike</title>
-      <link rel="stylesheet" type="text/css" href="stylemb.css" />
-      <script type = "text/javascript" src ="{{ url_for('static', filename = 'validare.js') }}" >
-         </script>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'login.css') }}" />
+      
    </head>
    <body>
       <div id="container">
@@ -19,11 +18,13 @@
                <center>Last name:<input type="text" name="LastName" id="LastName"><br/></center>
                <center>Password:<input type="password" name="pwd"></center>
                <center><input type = "button" onclick = "validare()" value = "Submit" /></center>
-               <center><a href="signupmb.html">Still not signed up?!</a></center>
+              <!--  <center><a href="signupmb.html">Still not signed up?!</a></center> -->
             </form>
 		 </center>
             
          </div>
       </div>
    </body>
+   <script type = "text/javascript" src ="{{ url_for('static', filename = 'validare.js') }}" >
+         </script>
    </html

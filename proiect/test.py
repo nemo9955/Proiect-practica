@@ -1,5 +1,5 @@
 from flask import Flask ,redirect, url_for, request, render_template
-app = Flask(__name__)
+# app = Flask(__name__)
 
 # #1
 # @app.route("/tudor")
