@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Log in for mybike</title>
+      <link rel="stylesheet" type="text/css" href="stylemb.css" />
+      <script type = "text/javascript" src ="{{ url_for('static', filename = 'validare.js') }}" >
+         </script>
+   </head>
+   <body>
+      <div id="container">
+      <div id="header">
+         <h1>Log in</h1>
+      </div>
+      <div id="content">
+         <div id="main">
+         <center>
+		 <form name='form' action="/login" method="post">
+               <center>Sir name:<input type="text"  name="FirstName" id="FirstName"><br/></center>
+               <center>Last name:<input type="text" name="LastName" id="LastName"><br/></center>
+               <center>Password:<input type="password" name="pwd"></center>
+               <center><input type = "button" onclick = "validare()" value = "Submit" /></center>
+               <center><a href="signupmb.html">Still not signed up?!</a></center>
+            </form>
+		 </center>
+            
+         </div>
+      </div>
+   </body>
+   </html
