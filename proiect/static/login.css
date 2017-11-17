@@ -1,3 +1,33 @@
 body{background-image:url(./bikesign.jpg);
          background-size:100%;
          }
+
+
+#header{
+background-color:#FF9900;
+font-family: roboto;
+color: white;
+text-align:center;
+padding:1px;
+border: 1px;
+border-radius: 25px;
+}
+#content{
+margin: auto;
+width:180px;
+padding: 10px;
+width:30%;
+}
+#header1{
+background-color:#FF9900;
+font-family: roboto;
+color: white;
+text-align:center;
+padding:1px;
+border: 1px;
+border-radius: 25px;
+position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
