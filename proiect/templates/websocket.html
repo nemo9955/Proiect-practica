@@ -1,0 +1,165 @@
+
+
+
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script> -->
+
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'socket.io.min.js') }}"></script>
+
+<script type="text/javascript" charset="utf-8">
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('connect', function() {
+        socket.emit('my event', {data: 'I\'m connected!'});
+    });
+
+
+socket.on('schimba_culoarea', function (data) {
+  console.log(data);
+    var e = document.getElementById('ledstatus');
+    if (data.status === 'ledon') {
+      e.style.color = data.culoare
+    }
+    // else if (data === 'ledoff') {
+    //   e.style.color = 'black';
+    // }
+    else {
+      console.log('unknown event');
+    }
+    console.log(data);
+    // socket.emit('my other event', { my: 'data' });
+  });
+
+
+function buttonclick(e) {
+  // websock.send(e.id);
+        socket.emit('ledul', e.id);
+}
+
+
+</script>
+<button id="ledon"  type="button" onclick="buttonclick(this);">On</button> 
+<button id="ledoff" type="button" onclick="buttonclick(this);">Off</button>
+
+<div id="ledstatus"><b>LED</b></div>
+
+
+<button id="1" type="button" onclick="buttonclick(this);">1</button>
+<button id="2" type="button" onclick="buttonclick(this);">2</button>
+<button id="3" type="button" onclick="buttonclick(this);">3</button>
+<button id="4" type="button" onclick="buttonclick(this);">4</button>
+<button id="5" type="button" onclick="buttonclick(this);">5</button></br>
+
+
+
+
+
+</br><button id="buton_StartStop" type="button" value='Start' onclick='main()'>Start</button> <br />
+<input id="text" type="textbox" value="" />
+<script>
+
+var action = 'Start';
+function main() 
+{
+  
+    // var elem = document.getElementById("buton_StartStop");
+    // if (elem.innerHTML=="Start") {
+    //   elem.innerHTML = "Stop";
+      
+    //   loopingStart();
+
+    // }
+    // else {
+    //   elem.innerHTML = "Start";
+    //   loopingStop();
+    // }
+    if(action==='Start')
+    {
+      loopingStart();
+    }
+    else
+    {
+      loopingStop();
+    }
+
+  
+}
+
+var i = 1;  
+var timer=0;
+
+function repeat_cycle() {    
+  // var elem = document.getElementById("buton_StartStop");
+  // elem.innerHTML = "Stop";
+          //document.write("Ceau");        
+
+    //var i = 1;                     
+    
+
+console.log('startttttty')
+console.log(action)
+
+if(action === 'Start'){
+  //var elem = document.getElementById("buton_StartStop");
+
+    var text= document.getElementById("text");
+    text.value="Ceau"+i;
+         i++;                     
+          // if (i < 10) {            
+          //    myLoop();             
+          // }            
+
+       // timer = setTimeout(repeat_cycle , 1000)  ;            
+     }
+    // else
+    //   loopingStop();
+}
+
+
+function loopingStart()
+{
+    var elem = document.getElementById("buton_StartStop");
+    elem.innerHTML = "Stop";
+
+      action='Start';
+       timer = setTimeout(repeat_cycle , 1000)    ;
+
+
+    
+}
+function loopingStop()
+{
+  // alert('Stop');
+  var elem = document.getElementById("buton_StartStop");
+      elem.innerHTML = "Start";
+      action='Stop';
+      clearTimeout(timer);
+}
+
+</script>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=0">
+<title>ESP8266 WebSocket Demo</title>
+<style>
+"body { background-color: #808080; font-family: Arial, Helvetica, Sans-Serif; Color: #000000; }"
+</style>
+<script>
+var websock;
+function start() {
+  websock = new WebSocket('http://' + window.location.hostname + ':8899/');
+  websock.onopen = function(evt) { console.log('websock open'); };
+  websock.onclose = function(evt) { console.log('websock close'); };
+  websock.onerror = function(evt) { console.log(evt); };
+  websock.onmessage = function(evt) {
+    
+  };
+}
+
+</script>
+</head>
+<body onload="javascript:start();">
+<h1>ESP8266 WebSocket Demo</h1>
+</body>
+</html> -->
